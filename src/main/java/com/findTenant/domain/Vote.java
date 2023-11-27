@@ -17,12 +17,15 @@ public class Vote implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
+    private String voteType;
+
     protected Vote() {}
 
     private Vote(Builder builder) {
         this.voteId = builder.voteId;
         this.post = builder.post;
         this.user = builder.user;
+        this.voteType = builder.voteType;
     }
 
     public String getVoteId() {
@@ -37,17 +40,21 @@ public class Vote implements Serializable {
         return user;
     }
 
+    public String getVoteType() {
+        return voteType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vote vote = (Vote) o;
-        return Objects.equals(voteId, vote.voteId) && Objects.equals(post, vote.post) && Objects.equals(user, vote.user);
+        return Objects.equals(voteId, vote.voteId) && Objects.equals(post, vote.post) && Objects.equals(user, vote.user) && Objects.equals(voteType, vote.voteType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(voteId, post, user);
+        return Objects.hash(voteId, post, user, voteType);
     }
 
     @Override
@@ -55,7 +62,8 @@ public class Vote implements Serializable {
         return "Vote{" +
                 "voteId='" + voteId + '\'' +
                 ", post=" + post +
-                ", username=" + user +
+                ", user=" + user +
+                ", voteType='" + voteType + '\'' +
                 '}';
     }
 
@@ -64,6 +72,7 @@ public class Vote implements Serializable {
         private String voteId;
         private Post post;
         private User user;
+        private String voteType;
 
         public Builder() {}
 
@@ -82,10 +91,16 @@ public class Vote implements Serializable {
             return this;
         }
 
+        public Builder setVoteType(String voteType) {
+            this.voteType = voteType;
+            return this;
+        }
+
         public Builder copy(Vote vote) {
             this.voteId = vote.voteId;
             this.post = vote.post;
             this.user = vote.user;
+            this.voteType = vote.voteType;
             return this;
         }
 
