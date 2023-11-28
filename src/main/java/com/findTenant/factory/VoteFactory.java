@@ -35,6 +35,7 @@ public class VoteFactory {
                 .setVoteId(id)
                 .setPost(post)
                 .setUser(user)
+                .setVoteType(voteType)
                 .build();
     }
 

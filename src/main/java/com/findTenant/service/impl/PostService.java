@@ -4,19 +4,23 @@ import com.findTenant.domain.Post;
 import com.findTenant.domain.Vote;
 import com.findTenant.factory.VoteFactory;
 import com.findTenant.repository.PostRepository;
+import com.findTenant.repository.VoteRepository;
 import com.findTenant.service.IPostService;
 import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PostService implements IPostService {
 
     private final PostRepository postRepository;
+    private final VoteRepository voteRepository;
 
-    private PostService(PostRepository postRepository) {
+    private PostService(PostRepository postRepository, VoteRepository voteRepository) {
         this.postRepository = postRepository;
+        this.voteRepository = voteRepository;
     }
 
     @Override
@@ -62,9 +66,20 @@ public class PostService implements IPostService {
     public Post downVote(Post post) {
         Post updatedPost = new Post.Builder()
                 .copy(post)
-                .setUpVotes(post.getUpVotes() - 1)
+                .setDownVotes(post.getDownVotes() + 1)
                 .build();
         return update(updatedPost);
+    }
+
+    public List<Post> getPostsVotedFor(String username) {
+        List<Post> posts = new ArrayList<>();
+        List<Vote> votes = voteRepository.getVotesByUser_Username(username);
+
+        for (Vote vote : votes) {
+            posts.add(vote.getPost());
+        }
+
+        return posts;
     }
 
 }

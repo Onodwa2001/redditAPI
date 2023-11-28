@@ -16,9 +16,9 @@ public class Comment implements Serializable {
     private String commentMessage;
     private LocalDateTime date;
     @ManyToOne
-    private Post post;
-    @ManyToOne
     private User user;
+    @ManyToOne
+    private Post post;
 
     protected Comment() {}
 
@@ -26,8 +26,8 @@ public class Comment implements Serializable {
         this.commentId = builder.commentId;
         this.commentMessage = builder.commentMessage;
         this.date = builder.date;
-        this.post = builder.post;
         this.user = builder.user;
+        this.post = builder.post;
     }
 
     public String getCommentId() {
@@ -42,12 +42,12 @@ public class Comment implements Serializable {
         return date;
     }
 
-    public Post getPost() {
-        return post;
-    }
-
     public User getUser() {
         return user;
+    }
+
+    public Post getPost() {
+        return post;
     }
 
     @Override
@@ -55,12 +55,12 @@ public class Comment implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(commentId, comment.commentId) && Objects.equals(commentMessage, comment.commentMessage) && Objects.equals(date, comment.date) && Objects.equals(post, comment.post) && Objects.equals(user, comment.user);
+        return Objects.equals(commentId, comment.commentId) && Objects.equals(commentMessage, comment.commentMessage) && Objects.equals(date, comment.date) && Objects.equals(user, comment.user) && Objects.equals(post, comment.post);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(commentId, commentMessage, date, post, user);
+        return Objects.hash(commentId, commentMessage, date, user, post);
     }
 
     @Override
@@ -69,8 +69,8 @@ public class Comment implements Serializable {
                 "commentId='" + commentId + '\'' +
                 ", commentMessage='" + commentMessage + '\'' +
                 ", date=" + date +
-                ", post=" + post +
                 ", user=" + user +
+                ", post=" + post +
                 '}';
     }
 
@@ -78,8 +78,8 @@ public class Comment implements Serializable {
 
         private String commentId, commentMessage;
         private LocalDateTime date;
-        private Post post;
         private User user;
+        private Post post;
 
         public Builder() {}
 
@@ -98,13 +98,13 @@ public class Comment implements Serializable {
             return this;
         }
 
-        public Builder setPost(Post post) {
-            this.post = post;
+        public Builder setUser(User user) {
+            this.user = user;
             return this;
         }
 
-        public Builder setUser(User user) {
-            this.user = user;
+        public Builder setPost(Post post) {
+            this.post = post;
             return this;
         }
 
@@ -112,8 +112,8 @@ public class Comment implements Serializable {
             this.commentId = comment.commentId;
             this.commentMessage = comment.commentMessage;
             this.date = comment.date;
-            this.post = comment.post;
             this.user = comment.user;
+            this.post = comment.post;
             return this;
         }
 

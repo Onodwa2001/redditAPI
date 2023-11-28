@@ -9,24 +9,15 @@ import java.time.LocalDateTime;
 
 public class CommentFactory {
 
-    public static Comment createComment(String commendMessage, LocalDateTime date, Post post, User user) {
-
-        LocalDateTime today = LocalDateTime.now();
+    public static Comment createComment(String commendMessage, Post post, User user) {
 
         if (Helper.isNullOrEmpty(commendMessage)) {
             System.out.println("Comment cannot be null");
             return null;
         }
 
-        if (date == null) {
-            System.out.println("Comment date cannot be null");
-            return null;
-        }
-
-//        if (date.isBefore(today))
-
         if (post == null) {
-            System.out.println("Post cannot be null");
+            System.out.println("Comment post cannot be null");
             return null;
         }
 
@@ -40,7 +31,7 @@ public class CommentFactory {
         return new Comment.Builder()
                 .setCommentId(id)
                 .setCommentMessage(commendMessage)
-                .setDate(date)
+                .setDate(LocalDateTime.now())
                 .setPost(post)
                 .setUser(user)
                 .build();

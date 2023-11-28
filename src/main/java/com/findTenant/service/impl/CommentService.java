@@ -6,6 +6,8 @@ import com.findTenant.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentService implements IService<Comment, String> {
 
@@ -41,4 +43,9 @@ public class CommentService implements IService<Comment, String> {
         }
         return false;
     }
+
+    public List<Comment> getCommentsByPostId(String postId) {
+        return commentRepository.getCommentsByPost_PostId(postId);
+    }
+
 }
