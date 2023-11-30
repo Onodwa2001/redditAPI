@@ -18,7 +18,7 @@ But if you have neither of those installed, follow these steps:
 3.  Once the installation is finished, you will have to run IntelliJ.
     You should see something like this:\
     \
-    ![](vertopal_5b53b9e4fb344732b22bfc212c304156/media/image1.png){width="6.268055555555556in"
+    ![](https://ibb.co/KrTtXGy){width="6.268055555555556in"
     height="5.11875in"}
 
 Yours won't have these projects.
@@ -26,7 +26,7 @@ Yours won't have these projects.
 4.  Next, you must click on the option "Get from VCS". Then you will see
     this.\
     \
-    ![](vertopal_5b53b9e4fb344732b22bfc212c304156/media/image2.png){width="6.268055555555556in"
+    ![](https://ibb.co/XF0Jft8){width="6.268055555555556in"
     height="1.6826388888888888in"}\
     \
     On the URL text field, you will have to paste the link to the remote
@@ -35,14 +35,14 @@ Yours won't have these projects.
 5.  You will need the link to the remote repository on github. So you
     will have to copy it.\
     \
-    ![](vertopal_5b53b9e4fb344732b22bfc212c304156/media/image3.png){width="3.4586329833770777in"
+    ![](https://ibb.co/PxXf1G4){width="3.4586329833770777in"
     height="1.1417650918635172in"}\
     \
     \
     \
     Then click on Code and copy the HTTPS link.\
     \
-    ![](vertopal_5b53b9e4fb344732b22bfc212c304156/media/image4.png){width="4.442051618547682in"
+    ![](https://ibb.co/4T05nhw){width="4.442051618547682in"
     height="2.800242782152231in"}
 
 6.  Once you have pasted this link to the URL field in IntelliJ, you
@@ -72,7 +72,7 @@ Yours won't have these projects.
     like this without the **server** and **workbench**. Click on the Add
     button\
     \
-    ![](vertopal_5b53b9e4fb344732b22bfc212c304156/media/image6.png){width="6.268055555555556in"
+    ![](https://ibb.co/dcSWQxJ){width="6.268055555555556in"
     height="4.695833333333334in"}
 
 9.  Install the server following these steps:\
@@ -84,7 +84,7 @@ Yours won't have these projects.
     \
     e.g\
     \
-    ![](vertopal_5b53b9e4fb344732b22bfc212c304156/media/image7.png){width="5.683825459317585in"
+    ![](https://ibb.co/ckHLw2Y){width="5.683825459317585in"
     height="1.633474409448819in"}
 
 10. During you installation process you will get to a point where you
