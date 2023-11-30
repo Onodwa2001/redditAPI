@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
 
 @Entity
 public class Post implements Serializable {
@@ -16,7 +14,7 @@ public class Post implements Serializable {
     private int upVotes, downVotes, numberOfComments;
     private LocalDateTime date;
     @ManyToOne(fetch = FetchType.EAGER)
-    private User user;
+    private User postAuthor;
 
     protected Post() {}
 
@@ -28,7 +26,7 @@ public class Post implements Serializable {
         this.numberOfComments = builder.numberOfComments;
         this.date = builder.date;
 //        this.comments = builder.comments;
-        this.user = builder.user;
+        this.postAuthor = builder.postAuthor;
     }
 
     public String getPostId() {
@@ -59,8 +57,8 @@ public class Post implements Serializable {
 //        return comments;
 //    }
 
-    public User getUser() {
-        return user;
+    public User getPostAuthor() {
+        return postAuthor;
     }
 
     @Override
@@ -72,7 +70,7 @@ public class Post implements Serializable {
                 ", downVotes=" + downVotes +
                 ", numberOfComments=" + numberOfComments +
                 ", date=" + date +
-                ", user=" + user +
+                ", postAuthor=" + postAuthor +
                 '}';
     }
 
@@ -82,7 +80,7 @@ public class Post implements Serializable {
         private int upVotes, downVotes, numberOfComments;
         private LocalDateTime date;
 //        private List<Comment> comments;
-        private User user;
+        private User postAuthor;
 
         public Builder() {}
 
@@ -116,8 +114,8 @@ public class Post implements Serializable {
             return this;
         }
 
-        public Builder setUser(User user) {
-            this.user = user;
+        public Builder setPostAuthor(User postAuthor) {
+            this.postAuthor = postAuthor;
             return this;
         }
 
@@ -133,7 +131,7 @@ public class Post implements Serializable {
             this.downVotes = post.downVotes;
             this.numberOfComments = post.numberOfComments;
             this.date = post.date;
-            this.user = post.user;
+            this.postAuthor = post.postAuthor;
 //            this.comments = post.comments;
             return this;
         }

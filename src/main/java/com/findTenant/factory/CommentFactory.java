@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 public class CommentFactory {
 
-    public static Comment createComment(String commendMessage, Post post, User user) {
+    public static Comment createComment(String commendMessage, Post post, User commentAuthor) {
 
         if (Helper.isNullOrEmpty(commendMessage)) {
             System.out.println("Comment cannot be null");
@@ -21,8 +21,8 @@ public class CommentFactory {
             return null;
         }
 
-        if (user == null) {
-            System.out.println("User cannot be null");
+        if (commentAuthor == null) {
+            System.out.println("Comment Author cannot be null");
             return null;
         }
 
@@ -33,7 +33,9 @@ public class CommentFactory {
                 .setCommentMessage(commendMessage)
                 .setDate(LocalDateTime.now())
                 .setPost(post)
-                .setUser(user)
+                .setCommentAuthor(commentAuthor)
+                .setUpVotes(0)
+                .setDownVotes(0)
                 .build();
 
     }

@@ -17,7 +17,7 @@ public class VoteService {
     private final PostService postService;
 
     @Autowired
-    private VoteService(VoteRepository voteRepository, PostService postService) {
+    public VoteService(VoteRepository voteRepository, PostService postService) {
         this.voteRepository = voteRepository;
         this.postService = postService;
     }

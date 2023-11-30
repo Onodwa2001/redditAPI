@@ -1,17 +1,14 @@
 package com.findTenant.factory;
 
-import com.findTenant.domain.Comment;
 import com.findTenant.domain.Post;
 import com.findTenant.domain.User;
 import com.findTenant.util.Helper;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 
 public class PostFactory {
 
-    public static Post createPost(String postMessage, User user) {
+    public static Post createPost(String postMessage, User postAuthor) {
 
         if (Helper.isNullOrEmpty(postMessage)) {
             System.out.println("Post cannot be null");
@@ -25,7 +22,7 @@ public class PostFactory {
                 .setDownVotes(0)
                 .setNumberOfComments(0)
                 .setDate(LocalDateTime.now())
-                .setUser(user)
+                .setPostAuthor(postAuthor)
                 .build();
 
     }

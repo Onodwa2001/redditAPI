@@ -1,6 +1,7 @@
 package com.findTenant.service.impl;
 
 import com.findTenant.domain.Comment;
+import com.findTenant.domain.Post;
 import com.findTenant.repository.CommentRepository;
 import com.findTenant.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,24 @@ public class CommentService implements IService<Comment, String> {
             return true;
         }
         return false;
+    }
+
+    public Comment upVote(Comment comment) {
+
+        Comment updatedPost = new Comment.Builder()
+                .copy(comment)
+                .setUpVotes(comment.getUpVotes() + 1)
+                .build();
+        return update(updatedPost);
+    }
+
+    public Comment downVote(Comment comment) {
+
+        Comment updatedPost = new Comment.Builder()
+                .copy(comment)
+                .setDownVotes(comment.getDownVotes() - 1)
+                .build();
+        return update(updatedPost);
     }
 
     public List<Comment> getCommentsByPostId(String postId) {

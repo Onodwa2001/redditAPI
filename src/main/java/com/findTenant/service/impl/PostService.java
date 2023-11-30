@@ -18,7 +18,7 @@ public class PostService implements IPostService {
     private final PostRepository postRepository;
     private final VoteRepository voteRepository;
 
-    private PostService(PostRepository postRepository, VoteRepository voteRepository) {
+    public PostService(PostRepository postRepository, VoteRepository voteRepository) {
         this.postRepository = postRepository;
         this.voteRepository = voteRepository;
     }
@@ -80,6 +80,10 @@ public class PostService implements IPostService {
         }
 
         return posts;
+    }
+
+    public List<Post> getPostsByUsername(String username) {
+        return postRepository.getPostsByPostAuthor_Username(username);
     }
 
 }

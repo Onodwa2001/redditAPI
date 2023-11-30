@@ -16,9 +16,10 @@ public class Comment implements Serializable {
     private String commentMessage;
     private LocalDateTime date;
     @ManyToOne
-    private User user;
+    private User commentAuthor;
     @ManyToOne
     private Post post;
+    private int upVotes, downVotes;
 
     protected Comment() {}
 
@@ -26,8 +27,10 @@ public class Comment implements Serializable {
         this.commentId = builder.commentId;
         this.commentMessage = builder.commentMessage;
         this.date = builder.date;
-        this.user = builder.user;
+        this.commentAuthor = builder.commentAuthor;
         this.post = builder.post;
+        this.upVotes = builder.upVotes;
+        this.downVotes = builder.downVotes;
     }
 
     public String getCommentId() {
@@ -42,12 +45,20 @@ public class Comment implements Serializable {
         return date;
     }
 
-    public User getUser() {
-        return user;
+    public User getCommentAuthor() {
+        return commentAuthor;
     }
 
     public Post getPost() {
         return post;
+    }
+
+    public int getUpVotes() {
+        return upVotes;
+    }
+
+    public int getDownVotes() {
+        return downVotes;
     }
 
     @Override
@@ -55,12 +66,12 @@ public class Comment implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(commentId, comment.commentId) && Objects.equals(commentMessage, comment.commentMessage) && Objects.equals(date, comment.date) && Objects.equals(user, comment.user) && Objects.equals(post, comment.post);
+        return upVotes == comment.upVotes && downVotes == comment.downVotes && Objects.equals(commentId, comment.commentId) && Objects.equals(commentMessage, comment.commentMessage) && Objects.equals(date, comment.date) && Objects.equals(commentAuthor, comment.commentAuthor) && Objects.equals(post, comment.post);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(commentId, commentMessage, date, user, post);
+        return Objects.hash(commentId, commentMessage, date, commentAuthor, post, upVotes, downVotes);
     }
 
     @Override
@@ -69,8 +80,10 @@ public class Comment implements Serializable {
                 "commentId='" + commentId + '\'' +
                 ", commentMessage='" + commentMessage + '\'' +
                 ", date=" + date +
-                ", user=" + user +
+                ", commentAuthor=" + commentAuthor +
                 ", post=" + post +
+                ", upVotes=" + upVotes +
+                ", downVotes=" + downVotes +
                 '}';
     }
 
@@ -78,8 +91,9 @@ public class Comment implements Serializable {
 
         private String commentId, commentMessage;
         private LocalDateTime date;
-        private User user;
+        private User commentAuthor;
         private Post post;
+        private int upVotes, downVotes;
 
         public Builder() {}
 
@@ -98,8 +112,8 @@ public class Comment implements Serializable {
             return this;
         }
 
-        public Builder setUser(User user) {
-            this.user = user;
+        public Builder setCommentAuthor(User commentAuthor) {
+            this.commentAuthor = commentAuthor;
             return this;
         }
 
@@ -108,12 +122,24 @@ public class Comment implements Serializable {
             return this;
         }
 
+        public Builder setUpVotes(int upVotes) {
+            this.upVotes = upVotes;
+            return this;
+        }
+
+        public Builder setDownVotes(int downVotes) {
+            this.downVotes = downVotes;
+            return this;
+        }
+
         public Builder copy(Comment comment) {
             this.commentId = comment.commentId;
             this.commentMessage = comment.commentMessage;
             this.date = comment.date;
-            this.user = comment.user;
+            this.commentAuthor = comment.commentAuthor;
             this.post = comment.post;
+            this.upVotes = comment.upVotes;
+            this.downVotes = comment.downVotes;
             return this;
         }
 
