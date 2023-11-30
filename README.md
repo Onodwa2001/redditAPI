@@ -105,7 +105,7 @@ are the available API endpoints and their descriptions:
 
 ## API endpoints you can access without authentication 
 
-1.  ### Read a post\
+1.  ### Read a post
     \
     <http://localhost:8080/post/read/post_id> -\> This endpoint will
     read a specific post. The parameter **post_id** can be replaced with
@@ -114,7 +114,7 @@ are the available API endpoints and their descriptions:
     e.g
     <http://localhost:8080/post/read/2ca790a7-eab5-4b7f-9601-b5717742c814>
 
-2.  ### Create an account\
+2.  ### Create an account
     \
     <http://localhost:8080/user/create> -\> This endpoint is passed
     along in the body with an object that you want to send to the server
@@ -131,7 +131,7 @@ are the available API endpoints and their descriptions:
     }
     </pre>
 
-3.  ### Retrieve posts posted by a user using their username\
+3.  ### Retrieve posts posted by a user using their username
     \
     <http://localhost:8080/post/get_posts_of/username> -\> This endpoint
     will retrieve all the posts created by a specific user using their
@@ -141,7 +141,7 @@ are the available API endpoints and their descriptions:
     e.g
     [http://localhost:8080/post/get_posts_of/Viggo](http://localhost:8080/post/get_posts_of/Viggoe)
 
-4.  ### Log in/authenticate\
+4.  ### Log in/authenticate
     \
     <http://localhost:8080/auth/authenticate> -\> this endpoint is used
     to authenticate credentials and in return you get a JWT token.\
@@ -165,7 +165,7 @@ are the available API endpoints and their descriptions:
 
 ## API endpoints that require authentication
 
-1.  ### Create a post\
+1.  ### Create a post
     \
     <http://localhost:8080/post/create> -\> This endpoint is used to
     create a post. The request to the endpoint is passed along with a
@@ -177,7 +177,7 @@ are the available API endpoints and their descriptions:
     }
     </pre>
 
-2.  ### Update a post\
+2.  ### Update a post
     \
     <http://localhost:8080/post/update/post_id> -\> This endpoint is
     used to update a post. The parameter **post_id** can be replaced
@@ -195,7 +195,7 @@ are the available API endpoints and their descriptions:
     }
     </pre>
 
-3.  ### Delete a post\
+3.  ### Delete a post
     \
     <http://localhost:8080/post/delete/id> -\> This endpoint is used to
     delete a post. The parameter **id** can be replaced with the actual
@@ -204,13 +204,13 @@ are the available API endpoints and their descriptions:
     e.g
     <http://localhost:8080/post/delete/2ca790a7-eab5-4b7f-9601-b5717742c814>
 
-4.  ### See all posts the current user has upvoted or downvoted\
+4.  ### See all posts the current user has upvoted or downvoted
     \
     <https://localhost:8080/user/see_voted_posts> -\> This endpoint will
     retrieve all the posts that the current logged in user has voted
     for.
 
-5.  ### Upvoting a post\
+5.  ### Upvoting a post
     \
     <http://localhost:8080/vote/upvote/post_id> -\> This endpoint is
     used to upvote a post. The parameter **post_id** can be replaced
@@ -219,7 +219,7 @@ are the available API endpoints and their descriptions:
     e.g
     <http://localhost:8080/vote/upvote/2ca790a7-eab5-4b7f-9601-b5717742c814>
 
-6.  ### Downvoting a post\
+6.  ### Downvoting a post
     \
     <https://localhost:8080/vote/downVote/post_id> -\> This endpoint is
     used downvote a post. The parameter **post_id** can be replaced with
@@ -228,7 +228,7 @@ are the available API endpoints and their descriptions:
     e.g
     <https://localhost:8080/vote/downVote/2ca790a7-eab5-4b7f-9601-b5717742c814>
 
-7.  ### Writing a comment\
+7.  ### Writing a comment
     \
     <http://localhost:8080/comment/create> -\> This endpoint is used to
     write a comment to a specific post. The request to this endpoint
@@ -250,7 +250,7 @@ are the available API endpoints and their descriptions:
     }
     </pre>
 
-8.  ### Upvoting a comment\
+8.  ### Upvoting a comment
     \
     <http://localhost:8080/comment_vote/upvote/comment_id> -\> This
     endpoint is used upvote a comment. The parameter **comment_id** can
@@ -259,7 +259,7 @@ are the available API endpoints and their descriptions:
     e.g
     [http://localhost:8080/comment_vote/upvote/4bdf8d23-0e4a-45f8-aa7d-4ac234daff59](http://localhost:8080/comment_vote/upvote/comment_id)
 
-9.  ### Downvoting a comment\
+9.  ### Downvoting a comment
     \
     <http://localhost:8080/comment_vote/downVote/comment_id> -\> This
     endpoint is used downvote a comment. The parameter **comment_id**
@@ -268,7 +268,7 @@ are the available API endpoints and their descriptions:
     e.g
     [http://localhost:8080/comment_vote/upvote/4bdf8d23-0e4a-45f8-aa7d-4ac234daff59](http://localhost:8080/comment_vote/upvote/comment_id)
 
-10. ### Getting posts of posted by the current logged in user\
+10. ### Getting posts of posted by the current logged in user
     \
     <http://localhost:8080/user/get_my_posts> -\> This endpoint will
     retrieve all the current logged in user's posts. It will get all the
